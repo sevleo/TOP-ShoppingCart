@@ -4,8 +4,15 @@ Development in progress
 
 ## Table of Contents
 
+- [Technologies] (#technologies)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Technologies
+
+- React
+- Vitest
+- TailwindCSS
 
 ## Contributing
 
