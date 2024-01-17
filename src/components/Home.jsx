@@ -1,8 +1,17 @@
 import Navigation from "./Navigation";
 import Content from "./Content";
 import Footer from "./Footer";
+import useData from "./useDataHook.jsx";
 
 function Home() {
+  const url =
+    "https://mock.shop/api?query={collections(first:%2010){edges%20{cursor%20node%20{id%20handle%20title%20description%20image%20{id%20url}}}}}";
+  const { data } = useData(url);
+
+  if (data) {
+    console.log(data);
+  }
+
   return (
     <>
       <Navigation />
