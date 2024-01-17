@@ -2,6 +2,7 @@ import Navigation from "./Navigation";
 import Content from "./Content";
 import Footer from "./Footer";
 import useData from "./useDataHook.jsx";
+import { switchLocalStorageStatus } from "../LocalStorageModule.js";
 
 function Home() {
   const url =
@@ -11,6 +12,8 @@ function Home() {
   if (data) {
     console.log(data);
   }
+
+  switchLocalStorageStatus();
 
   return (
     <>
