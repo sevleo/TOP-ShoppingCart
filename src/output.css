@@ -571,6 +571,12 @@ video {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* #root {
+  width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -587,6 +593,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 h1 {
