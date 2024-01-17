@@ -4,7 +4,7 @@ Development in progress
 
 ## Table of Contents
 
-- [Technologies] (#technologies)
+- [Technologies](#technologies)
 - [Contributing](#contributing)
 - [License](#license)
 
