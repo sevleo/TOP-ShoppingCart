@@ -1,14 +1,23 @@
-// Shows if local storage has been used
-const localStorageStatus = {
-  loaded: "false",
-};
-
-function switchLocalStorageStatus() {
+// Store collections in local storage
+function saveCollectionsData(data) {
   if (storageAvailable("localStorage")) {
-    if (localStorageStatus.loaded === "false") {
-      localStorageStatus.loaded = "true";
-      localStorage.setItem("localStorageLoaded", localStorageStatus.loaded);
-    }
+    const serializedData = JSON.stringify(data);
+    localStorage.setItem("collections", serializedData);
+  }
+}
+
+// Check if collections are in local storage
+function checkCollectionsData() {
+  if (storageAvailable("localStorage")) {
+    let storedData;
+    const keys = Object.values(localStorage);
+    keys.forEach((key) => {
+      const parsedKey = JSON.parse(key);
+      if (parsedKey.data.collections) {
+        storedData = parsedKey;
+      }
+    });
+    return storedData;
   }
 }
 
@@ -40,4 +49,4 @@ function storageAvailable(type) {
   }
 }
 
-export { switchLocalStorageStatus };
+export { checkCollectionsData, saveCollectionsData };

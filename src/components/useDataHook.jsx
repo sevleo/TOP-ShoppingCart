@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useData = (url) => {
+const useData = (url, stopFetch = "false") => {
   const [state, setState] = useState();
 
   useEffect(() => {
@@ -9,8 +9,10 @@ const useData = (url) => {
       const response = await request.json();
       setState(response);
     };
-    dataFetch();
-  }, [url]);
+    if (!stopFetch) {
+      dataFetch();
+    }
+  }, [url, stopFetch]);
   return { data: state };
 };
 
