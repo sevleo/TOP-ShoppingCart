@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Content({ type }) {
   if (type === "home") {
     return <HomeContent />;
@@ -7,6 +9,10 @@ function Content({ type }) {
     return <StoreContent />;
   }
 }
+
+Content.propTypes = {
+  type: PropTypes.string.isRequired,
+};
 
 export default Content;
 
