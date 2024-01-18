@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 
 const Context = React.createContext();
 
+// Data provider for Home and Collection pages
 export const CollectionsDataProvider = ({ children }) => {
   const [collections, setCollections] = useState();
 
@@ -40,9 +41,8 @@ CollectionsDataProvider.propTypes = {
 
 export const useCollections = () => useContext(Context);
 
+// Data provider for a specific collection
 export const ProductsDataProvider = (id) => {
-  console.log(id);
-
   const [products, setProducts] = useState();
   useEffect(() => {
     const url = `https://mock.shop/api?query={collection(id:%20%22${id.id}%22){id%20handle%20title%20description%20image%20{id%20url}%20products(first:%2020){edges%20{node%20{id%20title%20featuredImage%20{id%20url}}}}}}`;
@@ -50,10 +50,8 @@ export const ProductsDataProvider = (id) => {
     const dataFetch = async () => {
       const request = await fetch(url);
       const response = await request.json();
-      // setProducts((prevProducts) => {
-      //   return [...(prevProducts || []), ...response];
-      // });
-      setProducts(products);
+
+      setProducts(response);
       console.log(response);
     };
     dataFetch();
