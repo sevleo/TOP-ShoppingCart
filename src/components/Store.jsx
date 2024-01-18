@@ -4,13 +4,18 @@ import Footer from "./Footer";
 import { useCollections } from "./Context.jsx";
 
 function Store() {
-  const collections = useCollections();
-  console.log(collections);
+  const collectionsRaw = useCollections();
+  console.log(collectionsRaw);
+
+  let collections;
+  if (collectionsRaw) {
+    collections = collectionsRaw.data.collections.edges;
+  }
 
   return (
     <>
       <Navigation />
-      <Content type="store" />
+      <Content type="store" collections={collections} />
       <Footer />
     </>
   );
