@@ -2,7 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Home";
 import ErrorPage from "./ErrorPage";
 import Store from "./Store";
-import { VeryRootApp } from "./VeryRootApp";
+import { CollectionsDataProvider } from "./Context";
+import CollectionProducts from "./CollectionProducts";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -15,12 +16,16 @@ const Router = () => {
       path: "/store",
       element: <Store />,
     },
+    {
+      path: "/store/:name",
+      element: <CollectionProducts />,
+    },
   ]);
 
   return (
-    <VeryRootApp>
+    <CollectionsDataProvider>
       <RouterProvider router={router} />
-    </VeryRootApp>
+    </CollectionsDataProvider>
   );
 };
 

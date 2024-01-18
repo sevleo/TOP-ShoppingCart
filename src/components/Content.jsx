@@ -35,8 +35,11 @@ function StoreContent({ collections }) {
         {collections.map((collection) => (
           <Card
             key={collection.node.id}
+            id={collection.node.id}
+            type="collection"
             title={collection.node.title}
             image={collection.node.image.url}
+            handle={collection.node.handle}
           />
         ))}
       </div>
