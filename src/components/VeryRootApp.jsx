@@ -1,10 +1,10 @@
+import { Outlet } from "react-router-dom";
 import { CollectionsDataProvider } from "./Context";
-import Home from "./Home";
 
 export const VeryRootApp = () => {
   return (
     <CollectionsDataProvider>
-      <Home />
+      <Outlet />
     </CollectionsDataProvider>
   );
 };

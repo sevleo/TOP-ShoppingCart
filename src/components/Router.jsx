@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
+import Home from "./Home.jsx";
 import Store from "./Store";
 import { VeryRootApp } from "./VeryRootApp";
 
@@ -9,10 +10,16 @@ const Router = () => {
       path: "/",
       element: <VeryRootApp />,
       errorElement: <ErrorPage />,
-    },
-    {
-      path: "/store",
-      element: <Store />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "store",
+          element: <Store />,
+        },
+      ],
     },
   ]);
 
