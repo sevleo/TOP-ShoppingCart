@@ -4,6 +4,7 @@ import {
   saveCollectionsData,
   checkCollectionsData,
 } from "../LocalStorageModule.js";
+import PropTypes from "prop-types";
 
 const Context = React.createContext();
 
@@ -31,6 +32,10 @@ export const CollectionsDataProvider = ({ children }) => {
   }, []);
 
   return <Context.Provider value={collections}>{children}</Context.Provider>;
+};
+
+CollectionsDataProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export const useCollections = () => useContext(Context);
