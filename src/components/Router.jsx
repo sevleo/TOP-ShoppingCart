@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Home";
 import ErrorPage from "./ErrorPage";
-import Store from "./Store";
-import { CollectionsDataProvider } from "./Context";
+import Collections from "./Collections";
+import { CollectionsDataProvider } from "./CollectionsContext";
 import CollectionProducts from "./CollectionProducts";
 
 const Router = () => {
@@ -13,11 +13,15 @@ const Router = () => {
       errorElement: <ErrorPage />,
     },
     {
-      path: "/store",
-      element: <Store />,
+      path: "/collections",
+      element: <Collections />,
     },
     {
-      path: "/store/:name",
+      path: "/collections/:name",
+      element: <CollectionProducts />,
+    },
+    {
+      path: "/collections/test",
       element: <CollectionProducts />,
     },
   ]);

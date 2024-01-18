@@ -6,8 +6,8 @@ function Content({ type, collections }) {
     return <HomeContent />;
   }
 
-  if (type === "store") {
-    return <StoreContent collections={collections} />;
+  if (type === "collections") {
+    return <CollectionsContent collections={collections} />;
   }
 }
 
@@ -25,21 +25,18 @@ function HomeContent() {
   );
 }
 
-function StoreContent({ collections }) {
-  console.log(collections);
-
+function CollectionsContent({ collections }) {
   if (collections && collections.length > 0) {
-    console.log(collections);
     return (
       <div id="content">
         {collections.map((collection) => (
           <Card
-            key={collection.node.id}
-            id={collection.node.id}
+            key={collection.data.collection.id}
+            id={collection.data.collection.id}
             type="collection"
-            title={collection.node.title}
-            image={collection.node.image.url}
-            handle={collection.node.handle}
+            title={collection.data.collection.title}
+            image={collection.data.collection.image.url}
+            handle={collection.data.collection.handle}
           />
         ))}
       </div>

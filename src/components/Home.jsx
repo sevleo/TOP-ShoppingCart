@@ -1,7 +1,7 @@
 import Navigation from "./Navigation";
 import Content from "./Content";
 import Footer from "./Footer";
-import { useCollections } from "./Context.jsx";
+import { useCollections } from "./CollectionsContext.jsx";
 
 function Home() {
   const collections = useCollections();

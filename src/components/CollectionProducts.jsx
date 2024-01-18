@@ -1,28 +1,32 @@
 import { useParams } from "react-router-dom";
-import Navigation from "./Navigation";
-import Content from "./Content";
-import Footer from "./Footer";
-import { ProductsDataProvider } from "./Context";
-import { useCollections } from "./Context.jsx";
+import Navigation from "./Navigation.jsx";
+import Footer from "./Footer.jsx";
+import { useCollections } from "./CollectionsContext.jsx";
 
 function CollectionProducts() {
+  const collections = useCollections();
+  console.log(collections);
+
   const { name } = useParams();
-  const collectionsRaw = useCollections();
-  console.log(collectionsRaw.data.collections.edges);
 
-  const selectedeCollection = collectionsRaw.data.collections.edges.filter(
-    (collection) => collection.node.handle === name
-  );
-
-  const selectedCollectionId = selectedeCollection[0].node.id;
-  console.log(selectedCollectionId);
+  let selectedCollection;
+  if (collections) {
+    selectedCollection = collections.filter(
+      (collection) => collection.data.collection.handle === name
+    );
+    console.log(selectedCollection[0]);
+  }
 
   return (
-    <ProductsDataProvider id={selectedCollectionId}>
+    <>
       <Navigation />
       <div>{name}</div>
+      {selectedCollection ? (
+        <div>{selectedCollection[0].data.collection.description}</div>
+      ) : null}
+
       <Footer />
-    </ProductsDataProvider>
+    </>
   );
 }
 
