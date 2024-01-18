@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./Home";
 import ErrorPage from "./ErrorPage";
-import Home from "./Home.jsx";
 import Store from "./Store";
 import { VeryRootApp } from "./VeryRootApp";
 
@@ -8,22 +8,20 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <VeryRootApp />,
+      element: <Home />,
       errorElement: <ErrorPage />,
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "store",
-          element: <Store />,
-        },
-      ],
+    },
+    {
+      path: "/store",
+      element: <Store />,
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <VeryRootApp>
+      <RouterProvider router={router} />
+    </VeryRootApp>
+  );
 };
 
 export default Router;
