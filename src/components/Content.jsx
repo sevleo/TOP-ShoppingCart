@@ -17,6 +17,8 @@ function Content({ type, collections, selectedCollection }) {
 
 Content.propTypes = {
   type: PropTypes.string.isRequired,
+  collections: PropTypes.array,
+  selectedCollection: PropTypes.object,
 };
 
 export default Content;
@@ -56,6 +58,10 @@ function CollectionsContent({ collections }) {
   }
 }
 
+CollectionsContent.propTypes = {
+  collections: PropTypes.array.isRequired,
+};
+
 function ProductsContent({ selectedCollection }) {
   if (
     selectedCollection &&
@@ -85,3 +91,7 @@ function ProductsContent({ selectedCollection }) {
     );
   }
 }
+
+ProductsContent.propTypes = {
+  selectedCollection: PropTypes.object.isRequired,
+};
