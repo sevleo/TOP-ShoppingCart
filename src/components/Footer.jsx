@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="mt-auto flex h-16 items-center justify-center">
+    <footer className="mt-auto flex h-8 items-center justify-center">
       Footer
     </footer>
   );
