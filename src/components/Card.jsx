@@ -47,7 +47,7 @@ CollectionCard.propTypes = {
 
 function ProductCard({ title, image, price }) {
   return (
-    <div className="mb-6  min-h-52 w-36 min-w-36 shrink-0 grow-0 basis-1/5 rounded-md shadow-md">
+    <div className="mb-6  min-h-52 min-w-36 shrink-0 grow-0 basis-1/5 rounded-md shadow-md">
       <img src={image} className="aspect-square rounded-md object-cover "></img>
       <h1 className="text-l flex items-center justify-center p-2 text-center">
         {title}
