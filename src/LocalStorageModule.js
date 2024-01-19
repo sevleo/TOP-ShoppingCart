@@ -6,17 +6,40 @@ function saveCollectionsData(data) {
   }
 }
 
+// Store collections with products in local storage
+function saveCollectionsWithProductsData(data) {
+  if (storageAvailable("localStorage")) {
+    const serializedData = JSON.stringify(data);
+    localStorage.setItem("collectionsWithProducts", serializedData);
+  }
+}
+
 // Check if collections are in local storage
 function checkCollectionsData() {
   if (storageAvailable("localStorage")) {
     let storedData;
-    const keys = Object.values(localStorage);
-    keys.forEach((key) => {
-      const parsedKey = JSON.parse(key);
-      if (parsedKey.data.collections) {
+    const obj = Object(localStorage);
+    if (obj.collections) {
+      const parsedKey = JSON.parse(obj.collections);
+      if (parsedKey.data) {
         storedData = parsedKey;
       }
-    });
+    }
+    return storedData;
+  }
+}
+
+// Check if collections with products are in local storage
+function checkCollectionsWithProductsData() {
+  if (storageAvailable("localStorage")) {
+    let storedData;
+    const obj = Object(localStorage);
+    if (obj.collectionsWithProducts) {
+      const parsedKey = JSON.parse(obj.collectionsWithProducts);
+      if (parsedKey) {
+        storedData = parsedKey;
+      }
+    }
     return storedData;
   }
 }
@@ -49,4 +72,9 @@ function storageAvailable(type) {
   }
 }
 
-export { checkCollectionsData, saveCollectionsData };
+export {
+  checkCollectionsData,
+  saveCollectionsData,
+  saveCollectionsWithProductsData,
+  checkCollectionsWithProductsData,
+};

@@ -2,7 +2,9 @@ import React from "react";
 import { useEffect, useState, useContext } from "react";
 import {
   saveCollectionsData,
+  saveCollectionsWithProductsData,
   checkCollectionsData,
+  checkCollectionsWithProductsData,
 } from "../LocalStorageModule.js";
 import PropTypes from "prop-types";
 
@@ -36,6 +38,10 @@ export const CollectionsDataProvider = ({ children }) => {
 
   useEffect(() => {
     if (collections) {
+      const collectionsWithDataLocalStorageData =
+        checkCollectionsWithProductsData();
+      const stopFetch = collectionsWithDataLocalStorageData ? true : false;
+
       const dataFetch = async (url) => {
         const request = await fetch(url);
         const response = await request.json();
@@ -53,9 +59,15 @@ export const CollectionsDataProvider = ({ children }) => {
         });
         const newCollectionsWithProducts = await Promise.all(promises);
         setCollectionsWithProducts(newCollectionsWithProducts);
+        saveCollectionsWithProductsData(newCollectionsWithProducts);
       };
-      console.log("fetching products from API");
-      fetchCollectionsWithProducts();
+      if (!stopFetch) {
+        console.log("fetching products from API");
+        fetchCollectionsWithProducts();
+      } else {
+        console.log("fetching products from Local Storage");
+        setCollectionsWithProducts(collectionsWithDataLocalStorageData);
+      }
     }
   }, [collections]);
 
