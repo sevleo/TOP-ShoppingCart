@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function Card({ id, type, title, image, handle }) {
   if (type === "collection") {
@@ -14,7 +15,15 @@ function Card({ id, type, title, image, handle }) {
 
 export default Card;
 
-function CollectionCard({ id, title, image, handle }) {
+Card.propTypes = {
+  id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  handle: PropTypes.string,
+};
+
+function CollectionCard({ title, image, handle }) {
   return (
     <Link to={handle}>
       <div>
@@ -25,7 +34,13 @@ function CollectionCard({ id, title, image, handle }) {
   );
 }
 
-function ProductCard({ id, title, image }) {
+CollectionCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  handle: PropTypes.string.isRequired,
+};
+
+function ProductCard({ title, image }) {
   return (
     <div>
       <div>
@@ -35,3 +50,8 @@ function ProductCard({ id, title, image }) {
     </div>
   );
 }
+
+ProductCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
