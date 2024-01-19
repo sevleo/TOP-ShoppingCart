@@ -38,18 +38,23 @@ function CollectionsContent({ collections }) {
     return (
       <div
         id="content"
-        className="ml-auto mr-auto flex max-w-screen-xl flex-wrap items-start justify-center gap-5 pb-6 pl-6 pr-6 pt-6"
+        className="ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-10 pb-6 pl-6 pr-6 pt-6"
       >
-        {collections.map((collection) => (
-          <Card
-            key={collection.data.collection.id}
-            id={collection.data.collection.id}
-            type="collection"
-            title={collection.data.collection.title}
-            image={collection.data.collection.image.url}
-            handle={collection.data.collection.handle}
-          />
-        ))}
+        <div className="ml-12 mt-6 -skew-y-3 self-start bg-black text-white">
+          <p className="skew-y-3 p-5 text-3xl">Collections</p>
+        </div>
+        <div className="flex flex-wrap items-start justify-center gap-5 ">
+          {collections.map((collection) => (
+            <Card
+              key={collection.data.collection.id}
+              id={collection.data.collection.id}
+              type="collection"
+              title={collection.data.collection.title}
+              image={collection.data.collection.image.url}
+              handle={collection.data.collection.handle}
+            />
+          ))}
+        </div>
       </div>
     );
   } else {
@@ -82,6 +87,11 @@ function ProductsContent({ selectedCollection }) {
         id="content"
         className="ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-5 pb-6 pl-6 pr-6 pt-6"
       >
+        <div className="ml-12 mt-6 -skew-y-3 self-start bg-black text-white">
+          <p className="skew-y-3 p-5 text-3xl">
+            {selectedCollection.data.collection.title}
+          </p>
+        </div>
         <div className="w-3/5">
           {selectedCollection.data.collection.description}
         </div>
