@@ -24,10 +24,10 @@ export const CollectionsDataProvider = ({ children }) => {
       saveCollectionsData(response);
     };
     if (!stopFetch) {
-      console.log("fetching from API");
+      console.log("fetching collections from API");
       dataFetch();
     } else {
-      console.log("fetching from Local Storage");
+      console.log("fetching collections from Local Storage");
       setCollections(collectionsLocalStorageData);
     }
   }, []);
@@ -54,6 +54,7 @@ export const CollectionsDataProvider = ({ children }) => {
         const newCollectionsWithProducts = await Promise.all(promises);
         setCollectionsWithProducts(newCollectionsWithProducts);
       };
+      console.log("fetching products from API");
       fetchCollectionsWithProducts();
     }
   }, [collections]);

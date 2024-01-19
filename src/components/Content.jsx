@@ -34,7 +34,10 @@ function HomeContent() {
 function CollectionsContent({ collections }) {
   if (collections && collections.length > 0) {
     return (
-      <div id="content">
+      <div
+        id="content"
+        className="ml-auto mr-auto flex max-w-screen-xl flex-wrap items-start justify-center gap-5 pl-6 pr-6"
+      >
         {collections.map((collection) => (
           <Card
             key={collection.data.collection.id}
@@ -59,7 +62,7 @@ function CollectionsContent({ collections }) {
 }
 
 CollectionsContent.propTypes = {
-  collections: PropTypes.array.isRequired,
+  collections: PropTypes.array,
 };
 
 function ProductsContent({ selectedCollection }) {
