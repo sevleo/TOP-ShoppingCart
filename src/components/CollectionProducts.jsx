@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import Navigation from "./Navigation.jsx";
 import Footer from "./Footer.jsx";
 import { useCollections } from "./CollectionsContext.jsx";
+import Content from "./Content.jsx";
 
 function CollectionProducts() {
   const collections = useCollections();
@@ -20,9 +21,8 @@ function CollectionProducts() {
   return (
     <>
       <Navigation />
-      <div>{name}</div>
       {selectedCollection ? (
-        <div>{selectedCollection[0].data.collection.description}</div>
+        <Content type="products" selectedCollection={selectedCollection[0]} />
       ) : null}
 
       <Footer />

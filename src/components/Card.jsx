@@ -6,6 +6,10 @@ function Card({ id, type, title, image, handle }) {
       <CollectionCard id={id} title={title} image={image} handle={handle} />
     );
   }
+
+  if (type === "product") {
+    return <ProductCard id={id} title={title} image={image} />;
+  }
 }
 
 export default Card;
@@ -18,5 +22,16 @@ function CollectionCard({ id, title, image, handle }) {
         <img src={image}></img>
       </div>
     </Link>
+  );
+}
+
+function ProductCard({ id, title, image }) {
+  return (
+    <div>
+      <div>
+        <h1 className="bg-black text-3xl underline">{title}</h1>
+        <img src={image}></img>
+      </div>
+    </div>
   );
 }
