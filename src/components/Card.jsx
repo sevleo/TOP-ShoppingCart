@@ -27,7 +27,7 @@ function CollectionCard({ title, image, handle }) {
   return (
     <Link to={handle} className="w-44 min-w-52 shrink-0 grow-0 basis-1/5">
       <div className="">
-        <h1 className="bg-black text-xl underline">{title}</h1>
+        <h1 className=" text-xl ">{title}</h1>
         <img src={image} className="aspect-square object-cover"></img>
       </div>
     </Link>
@@ -43,7 +43,7 @@ CollectionCard.propTypes = {
 function ProductCard({ title, image }) {
   return (
     <div className="w-16">
-      <h1 className="bg-black text-3xl underline">{title}</h1>
+      <h1 className=" text-3xl ">{title}</h1>
       <img src={image}></img>
     </div>
   );

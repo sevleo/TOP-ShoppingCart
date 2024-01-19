@@ -26,7 +26,7 @@ export default Content;
 function HomeContent() {
   return (
     <div id="content">
-      <h1 className="bg-black text-3xl underline">This is home content</h1>
+      <h1 className="text-3xl ">This is home content</h1>
     </div>
   );
 }
@@ -36,7 +36,7 @@ function CollectionsContent({ collections }) {
     return (
       <div
         id="content"
-        className="ml-auto mr-auto flex max-w-screen-xl flex-wrap items-start justify-center gap-5 pl-6 pr-6"
+        className="ml-auto mr-auto flex max-w-screen-xl flex-wrap items-start justify-center gap-5 pb-6 pl-6 pr-6 pt-6"
       >
         {collections.map((collection) => (
           <Card
@@ -53,9 +53,7 @@ function CollectionsContent({ collections }) {
   } else {
     return (
       <div id="content">
-        <h1 className="bg-black text-3xl underline">
-          There are no collections
-        </h1>
+        {/* <h1 className="text-3xl underline">There are no collections</h1> */}
       </div>
     );
   }
@@ -87,9 +85,9 @@ function ProductsContent({ selectedCollection }) {
   } else {
     return (
       <div id="content">
-        <h1 className="bg-black text-3xl underline">
+        {/* <h1 className="text-3xl underline">
           There are no products in this collection
-        </h1>
+        </h1> */}
       </div>
     );
   }
