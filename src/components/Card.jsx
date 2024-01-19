@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function Card({ id, type, title, image, handle }) {
+function Card({ id, type, title, image, handle, price }) {
   if (type === "collection") {
     return (
       <CollectionCard id={id} title={title} image={image} handle={handle} />
@@ -9,7 +9,7 @@ function Card({ id, type, title, image, handle }) {
   }
 
   if (type === "product") {
-    return <ProductCard id={id} title={title} image={image} />;
+    return <ProductCard id={id} title={title} image={image} price={price} />;
   }
 }
 
@@ -26,8 +26,8 @@ Card.propTypes = {
 function CollectionCard({ title, image, handle }) {
   return (
     <Link to={handle} className="mb-6 w-44 min-w-44 shrink-0 grow-0 basis-1/5">
-      <div className="collection-container transition-all duration-100 hover:scale-105">
-        <h1 className=" flex h-10 items-center justify-center text-center text-xl">
+      <div className="transition-all duration-100 hover:scale-105">
+        <h1 className="flex h-10 items-center justify-center text-center text-xl">
           {title}
         </h1>
         <img
@@ -45,11 +45,16 @@ CollectionCard.propTypes = {
   handle: PropTypes.string.isRequired,
 };
 
-function ProductCard({ title, image }) {
+function ProductCard({ title, image, price }) {
   return (
-    <div className="w-16">
-      <h1 className=" text-3xl ">{title}</h1>
-      <img src={image}></img>
+    <div className="mb-6 w-36 min-w-36 shrink-0 grow-0 basis-1/5 rounded-md shadow-md">
+      <img src={image} className="aspect-square rounded-md object-cover"></img>
+      <h1 className="text-l flex items-center justify-center p-2 text-center">
+        {title}
+      </h1>
+      <h1 className="text-l flex items-center justify-center p-2 text-center">
+        {price}
+      </h1>
     </div>
   );
 }
