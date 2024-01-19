@@ -21,6 +21,7 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
   handle: PropTypes.string,
+  price: PropTypes.string,
 };
 
 function CollectionCard({ title, image, handle }) {
@@ -62,4 +63,5 @@ function ProductCard({ title, image, price }) {
 ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  price: PropTypes.string,
 };
