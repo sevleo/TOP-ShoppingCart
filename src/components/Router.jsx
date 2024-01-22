@@ -14,6 +14,14 @@ const Router = () => {
     setShowCart(false);
   }
 
+  function handleKeyPress(event) {
+    if (event.key === "Escape") {
+      setShowCart(false);
+    }
+  }
+
+  document.addEventListener("keydown", handleKeyPress);
+
   const router = createBrowserRouter([
     {
       path: "/",
