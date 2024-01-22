@@ -1,6 +1,8 @@
-function Footer() {
+function Footer({ showCart }) {
   return (
-    <footer className="mt-auto flex h-8 items-center justify-center">
+    <footer
+      className={`${showCart ? "blur-sm" : ""} mt-auto flex h-8 items-center justify-center`}
+    >
       Footer
     </footer>
   );

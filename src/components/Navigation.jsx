@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext.jsx";
 
-function Navigation() {
+function Navigation({ setShowCart, showCart }) {
   const cartContext = useCart();
   function handleClick() {
+    setShowCart(true);
     console.log(cartContext);
   }
 
   return (
-    <nav id="navigation" className="shadow-md">
+    <nav id="navigation" className={`${showCart ? "blur-sm" : ""} shadow-md`}>
       <ul className="ml-auto mr-auto flex h-20 max-w-screen-xl items-center justify-end gap-4 p-3">
         <li>
           <Link to="/">Home</Link>

@@ -5,25 +5,26 @@ import Collections from "./Collections";
 import { CollectionsDataProvider } from "./CollectionsContext";
 import CollectionProducts from "./CollectionProducts";
 import { CartDataProvider } from "./CartContext";
+import { useState } from "react";
 
 const Router = () => {
+  const [showCart, setShowCart] = useState(false);
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: <Home setShowCart={setShowCart} showCart={showCart} />,
       errorElement: <ErrorPage />,
     },
     {
       path: "/collections",
-      element: <Collections />,
+      element: <Collections setShowCart={setShowCart} showCart={showCart} />,
     },
     {
       path: "/collections/:name",
-      element: <CollectionProducts />,
-    },
-    {
-      path: "/collections/test",
-      element: <CollectionProducts />,
+      element: (
+        <CollectionProducts setShowCart={setShowCart} showCart={showCart} />
+      ),
     },
   ]);
 
@@ -31,6 +32,9 @@ const Router = () => {
     <CollectionsDataProvider>
       <CartDataProvider>
         <RouterProvider router={router} />
+        {showCart ? (
+          <div className="fixed right-0 top-0 h-full w-96 bg-white"></div>
+        ) : null}
       </CartDataProvider>
     </CollectionsDataProvider>
   );

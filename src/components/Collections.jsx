@@ -4,7 +4,7 @@ import Footer from "./Footer.jsx";
 import { useCollections } from "./CollectionsContext.jsx";
 import { useCart } from "./CartContext.jsx";
 
-function Collections() {
+function Collections({ setShowCart, showCart }) {
   const collections = useCollections();
   console.log(collections);
 
@@ -13,9 +13,13 @@ function Collections() {
 
   return (
     <>
-      <Navigation />
-      <Content type="collections" collections={collections} />
-      <Footer />
+      <Navigation setShowCart={setShowCart} showCart={showCart} />
+      <Content
+        type="collections"
+        collections={collections}
+        showCart={showCart}
+      />
+      <Footer showCart={showCart} />
     </>
   );
 }

@@ -1,17 +1,22 @@
 import PropTypes from "prop-types";
 import Card from "./Card";
 
-function Content({ type, collections, selectedCollection }) {
+function Content({ type, collections, selectedCollection, showCart }) {
   if (type === "home") {
-    return <HomeContent />;
+    return <HomeContent showCart={showCart} />;
   }
 
   if (type === "collections") {
-    return <CollectionsContent collections={collections} />;
+    return <CollectionsContent collections={collections} showCart={showCart} />;
   }
 
   if (type === "products") {
-    return <ProductsContent selectedCollection={selectedCollection} />;
+    return (
+      <ProductsContent
+        selectedCollection={selectedCollection}
+        showCart={showCart}
+      />
+    );
   }
 }
 
@@ -23,22 +28,22 @@ Content.propTypes = {
 
 export default Content;
 
-function HomeContent() {
+function HomeContent({ showCart }) {
   return (
-    <div id="content">
-      <h1 className="ml-auto mr-auto flex max-w-screen-xl flex-wrap items-start justify-center gap-5 pb-6 pl-6 pr-6 pt-6 text-3xl ">
+    <div id="content" className={`${showCart ? "blur-sm" : ""}`}>
+      <h1 className=" ml-auto mr-auto flex max-w-screen-xl flex-wrap items-start justify-center gap-5 pb-6 pl-6 pr-6 pt-6 text-3xl ">
         This is home content
       </h1>
     </div>
   );
 }
 
-function CollectionsContent({ collections }) {
+function CollectionsContent({ collections, showCart }) {
   if (collections && collections.length > 0) {
     return (
       <div
         id="content"
-        className="ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-10 pb-6 pl-6 pr-6 pt-6"
+        className={`${showCart ? "blur-sm" : ""} ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-10 pb-6 pl-6 pr-6 pt-6`}
       >
         <div className="ml-12 mt-6 -skew-y-3 self-start bg-black text-white">
           <p className="skew-y-3 p-5 text-3xl">Collections</p>
@@ -70,7 +75,7 @@ CollectionsContent.propTypes = {
   collections: PropTypes.array,
 };
 
-function ProductsContent({ selectedCollection }) {
+function ProductsContent({ selectedCollection, showCart }) {
   const prices = ["$40", "$50", "$60", "$70", "$80", "$90", "$100", "$110"];
 
   function getRandomPrice() {
@@ -85,7 +90,7 @@ function ProductsContent({ selectedCollection }) {
     return (
       <div
         id="content"
-        className="ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-5 pb-6 pl-6 pr-6 pt-6"
+        className={`${showCart ? "blur-sm" : ""} ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-5 pb-6 pl-6 pr-6 pt-6`}
       >
         <div className="ml-12 mt-6 -skew-y-3 self-start bg-black text-white">
           <p className="skew-y-3 p-5 text-3xl">
