@@ -4,6 +4,7 @@ import ErrorPage from "./ErrorPage";
 import Collections from "./Collections";
 import { CollectionsDataProvider } from "./CollectionsContext";
 import CollectionProducts from "./CollectionProducts";
+import { CartDataProvider } from "./CartContext";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -28,7 +29,9 @@ const Router = () => {
 
   return (
     <CollectionsDataProvider>
-      <RouterProvider router={router} />
+      <CartDataProvider>
+        <RouterProvider router={router} />
+      </CartDataProvider>
     </CollectionsDataProvider>
   );
 };
