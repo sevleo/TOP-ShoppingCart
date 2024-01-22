@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { useCart } from "./CartContext";
 
-function Card({ id, type, title, image, handle, price }) {
+function Card({ id, type, title, image, handle, price, quantity }) {
   if (type === "collection") {
     return (
       <CollectionCard id={id} title={title} image={image} handle={handle} />
@@ -12,6 +12,18 @@ function Card({ id, type, title, image, handle, price }) {
 
   if (type === "product") {
     return <ProductCard id={id} title={title} image={image} price={price} />;
+  }
+
+  if (type === "cart product") {
+    return (
+      <CartProductCard
+        id={id}
+        title={title}
+        image={image}
+        price={price}
+        quantity={quantity}
+      />
+    );
   }
 }
 
@@ -112,3 +124,14 @@ ProductCard.propTypes = {
   image: PropTypes.string.isRequired,
   price: PropTypes.string,
 };
+
+function CartProductCard({ title, image, price, quantity }) {
+  return (
+    <div>
+      <p>{title}</p>
+      <p>{price}</p>
+      <p>{quantity}</p>
+      <img src={image}></img>
+    </div>
+  );
+}

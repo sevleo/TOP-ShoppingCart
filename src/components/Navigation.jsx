@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
-import { useCart } from "./CartContext.jsx";
 
 function Navigation({ setShowCart, showCart, onClick }) {
-  const cartContext = useCart();
   function handleClick() {
     setShowCart(true);
-    console.log(cartContext);
   }
 
   return (

@@ -6,6 +6,7 @@ import { CollectionsDataProvider } from "./CollectionsContext";
 import CollectionProducts from "./CollectionProducts";
 import { CartDataProvider } from "./CartContext";
 import { useState } from "react";
+import Cart from "./Cart";
 
 const Router = () => {
   const [showCart, setShowCart] = useState(false);
@@ -56,9 +57,7 @@ const Router = () => {
     <CollectionsDataProvider>
       <CartDataProvider>
         <RouterProvider router={router} />
-        {showCart ? (
-          <div className="fixed right-0 top-0 h-full w-96 bg-white"></div>
-        ) : null}
+        {showCart ? <Cart /> : null}
       </CartDataProvider>
     </CollectionsDataProvider>
   );
