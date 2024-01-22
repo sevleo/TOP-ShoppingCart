@@ -5,7 +5,7 @@ import { useCollections } from "./CollectionsContext.jsx";
 import Content from "./Content.jsx";
 import ScrollToTop from "./ScrollToTop.jsx";
 
-function CollectionProducts({ setShowCart, showCart }) {
+function CollectionProducts({ setShowCart, showCart, onClick }) {
   const collections = useCollections();
   console.log(collections);
 
@@ -22,16 +22,22 @@ function CollectionProducts({ setShowCart, showCart }) {
   return (
     <>
       <ScrollToTop />
-      <Navigation setShowCart={setShowCart} showCart={showCart} />
+      <Navigation
+        setShowCart={setShowCart}
+        showCart={showCart}
+        onClick={onClick}
+      />
       {selectedCollection ? (
         <Content
           type="products"
           selectedCollection={selectedCollection[0]}
           showCart={showCart}
+          setShowCart={setShowCart}
+          onClick={onClick}
         />
       ) : null}
 
-      <Footer showCart={showCart} />
+      <Footer showCart={showCart} onClick={onClick} />
     </>
   );
 }

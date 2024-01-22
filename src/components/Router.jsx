@@ -10,20 +10,36 @@ import { useState } from "react";
 const Router = () => {
   const [showCart, setShowCart] = useState(false);
 
+  function onClick() {
+    setShowCart(false);
+  }
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home setShowCart={setShowCart} showCart={showCart} />,
+      element: (
+        <Home setShowCart={setShowCart} showCart={showCart} onClick={onClick} />
+      ),
       errorElement: <ErrorPage />,
     },
     {
       path: "/collections",
-      element: <Collections setShowCart={setShowCart} showCart={showCart} />,
+      element: (
+        <Collections
+          setShowCart={setShowCart}
+          showCart={showCart}
+          onClick={onClick}
+        />
+      ),
     },
     {
       path: "/collections/:name",
       element: (
-        <CollectionProducts setShowCart={setShowCart} showCart={showCart} />
+        <CollectionProducts
+          setShowCart={setShowCart}
+          showCart={showCart}
+          onClick={onClick}
+        />
       ),
     },
   ]);

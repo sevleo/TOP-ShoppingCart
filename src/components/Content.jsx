@@ -1,13 +1,33 @@
 import PropTypes from "prop-types";
 import Card from "./Card";
 
-function Content({ type, collections, selectedCollection, showCart }) {
+function Content({
+  type,
+  collections,
+  selectedCollection,
+  showCart,
+  setShowCart,
+  onClick,
+}) {
   if (type === "home") {
-    return <HomeContent showCart={showCart} />;
+    return (
+      <HomeContent
+        showCart={showCart}
+        setShowCart={setShowCart}
+        onClick={onClick}
+      />
+    );
   }
 
   if (type === "collections") {
-    return <CollectionsContent collections={collections} showCart={showCart} />;
+    return (
+      <CollectionsContent
+        collections={collections}
+        showCart={showCart}
+        setShowCart={setShowCart}
+        onClick={onClick}
+      />
+    );
   }
 
   if (type === "products") {
@@ -15,6 +35,8 @@ function Content({ type, collections, selectedCollection, showCart }) {
       <ProductsContent
         selectedCollection={selectedCollection}
         showCart={showCart}
+        setShowCart={setShowCart}
+        onClick={onClick}
       />
     );
   }
@@ -28,22 +50,27 @@ Content.propTypes = {
 
 export default Content;
 
-function HomeContent({ showCart }) {
+function HomeContent({ showCart, setShowCart, onClick }) {
   return (
-    <div id="content" className={`${showCart ? "blur-sm" : ""}`}>
-      <h1 className=" ml-auto mr-auto flex max-w-screen-xl flex-wrap items-start justify-center gap-5 pb-6 pl-6 pr-6 pt-6 text-3xl ">
+    <div
+      id="content"
+      className={`${showCart ? "blur-sm" : ""} h-full`}
+      onClick={onClick}
+    >
+      <h1 className="ml-auto mr-auto flex max-w-screen-xl flex-wrap items-start justify-center gap-5 pb-6 pl-6 pr-6 pt-6 text-3xl ">
         This is home content
       </h1>
     </div>
   );
 }
 
-function CollectionsContent({ collections, showCart }) {
+function CollectionsContent({ collections, showCart, setShowCart, onClick }) {
   if (collections && collections.length > 0) {
     return (
       <div
         id="content"
         className={`${showCart ? "blur-sm" : ""} ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-10 pb-6 pl-6 pr-6 pt-6`}
+        onClick={onClick}
       >
         <div className="ml-12 mt-6 -skew-y-3 self-start bg-black text-white">
           <p className="skew-y-3 p-5 text-3xl">Collections</p>
@@ -64,7 +91,7 @@ function CollectionsContent({ collections, showCart }) {
     );
   } else {
     return (
-      <div id="content">
+      <div id="content" onClick={onClick}>
         {/* <h1 className="text-3xl underline">There are no collections</h1> */}
       </div>
     );
@@ -75,7 +102,12 @@ CollectionsContent.propTypes = {
   collections: PropTypes.array,
 };
 
-function ProductsContent({ selectedCollection, showCart }) {
+function ProductsContent({
+  selectedCollection,
+  showCart,
+  setShowCart,
+  onClick,
+}) {
   const prices = ["$40", "$50", "$60", "$70", "$80", "$90", "$100", "$110"];
 
   function getRandomPrice() {
@@ -91,6 +123,7 @@ function ProductsContent({ selectedCollection, showCart }) {
       <div
         id="content"
         className={`${showCart ? "blur-sm" : ""} ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-5 pb-6 pl-6 pr-6 pt-6`}
+        onClick={onClick}
       >
         <div className="ml-12 mt-6 -skew-y-3 self-start bg-black text-white">
           <p className="skew-y-3 p-5 text-3xl">
@@ -116,7 +149,7 @@ function ProductsContent({ selectedCollection, showCart }) {
     );
   } else {
     return (
-      <div id="content">
+      <div id="content" onClick={onClick}>
         {/* <h1 className="text-3xl underline">
           There are no products in this collection
         </h1> */}
