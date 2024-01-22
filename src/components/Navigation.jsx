@@ -4,21 +4,7 @@ import { useCart } from "./CartContext.jsx";
 function Navigation() {
   const cartContext = useCart();
   function handleClick() {
-    const cartItems = [];
-
-    cartContext.cart.forEach((contextItem) => {
-      let isDuplicate = false;
-      cartItems.forEach((cartItem) => {
-        if (cartItem.title === contextItem.title) {
-          isDuplicate = true;
-          cartItem.quantity = contextItem.quantity + cartItem.quantity;
-        }
-      });
-      if (!isDuplicate) {
-        cartItems.push({ ...contextItem });
-      }
-    });
-    console.log(cartItems);
+    console.log(cartContext);
   }
 
   return (

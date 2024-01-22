@@ -7,7 +7,19 @@ export const CartDataProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const updateCart = (newCartValue) => {
-    setCart((prevValue) => [...prevValue, newCartValue]);
+    setCart((prevCart) => {
+      const existingItem = prevCart.find(
+        (item) => item.title === newCartValue.title
+      );
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.title === newCartValue.title
+            ? { ...item, quantity: newCartValue.quantity + item.quantity }
+            : item
+        );
+      }
+      return [...prevCart, newCartValue];
+    });
   };
 
   const contextValue = {
