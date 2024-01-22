@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 function Card({ id, type, title, image, handle, price }) {
   if (type === "collection") {
@@ -47,8 +48,20 @@ CollectionCard.propTypes = {
 };
 
 function ProductCard({ title, image, price }) {
+  const [count, setCount] = useState(1);
+
+  function handleAddClick() {
+    setCount(count + 1);
+  }
+
+  function handleSubtractClick() {
+    if (count !== 1) {
+      setCount(count - 1);
+    }
+  }
+
   return (
-    <div className="mb-6  min-h-52 min-w-36 shrink-0 grow-0 basis-1/5 rounded-md shadow-md">
+    <div className="mb-6 flex min-h-52  min-w-36 shrink-0 grow-0 basis-1/5 flex-col items-center justify-center rounded-md pb-2 shadow-md">
       <img src={image} className="aspect-square rounded-md object-cover "></img>
       <h1 className="text-l flex items-center justify-center p-2 text-center">
         {title}
@@ -56,6 +69,24 @@ function ProductCard({ title, image, price }) {
       <h1 className="text-l flex items-center justify-center p-2 text-center">
         {price}
       </h1>
+      <div className="flex w-11/12 items-center justify-around p-2">
+        <button
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-black p-0 text-center text-white transition-all duration-100 hover:border-none hover:outline-none focus:border-none focus:outline-none active:scale-105"
+          onClick={handleSubtractClick}
+        >
+          -
+        </button>
+        <p className="w-6 text-center">{count}</p>
+        <button
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-black p-0 text-center text-white transition-all duration-100 hover:border-none hover:outline-none focus:border-none focus:outline-none active:scale-105"
+          onClick={handleAddClick}
+        >
+          +
+        </button>
+      </div>
+      <button className="bg-greenCustom w-11/12 p-2 text-white transition-all duration-100 active:bg-black">
+        Add to cart
+      </button>
     </div>
   );
 }
