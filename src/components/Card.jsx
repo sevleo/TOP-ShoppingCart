@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "./CartContext";
 import QuantityPicker from "./QuantityPicker";
 
@@ -117,6 +117,37 @@ ProductCard.propTypes = {
 };
 
 function CartProductCard({ title, image, price, quantity }) {
+  const cartContext = useCart();
+
+  const [count, setCount] = useState(quantity);
+
+  function handleAddClick() {
+    const item = {
+      title: title,
+      image: image,
+      price: price,
+      quantity: count + 1,
+    };
+    cartContext.updateQuantity(item);
+    setCount(count + 1);
+  }
+
+  // useEffect(() => {
+  //   const item = {
+  //     title: title,
+  //     image: image,
+  //     price: price,
+  //     quantity: count,
+  //   };
+  //   cartContext.updateQuantity(item);
+  // }, [count]);
+
+  function handleSubtractClick() {
+    if (count !== 1) {
+      setCount(count - 1);
+    }
+  }
+
   return (
     <div className="flex max-h-32 w-full flex-row p-2">
       <div className="flex items-center justify-center">
@@ -132,6 +163,11 @@ function CartProductCard({ title, image, price, quantity }) {
         </div>
         <div className="p-1">
           <p>{quantity}</p>
+          <QuantityPicker
+            handleSubtractClick={handleSubtractClick}
+            handleAddClick={handleAddClick}
+            count={count}
+          />
         </div>
       </div>
     </div>
