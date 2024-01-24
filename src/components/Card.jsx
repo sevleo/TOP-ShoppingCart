@@ -42,7 +42,7 @@ Card.propTypes = {
 // Collection cards
 function CollectionCard({ title, image, handle }) {
   return (
-    <Link to={handle} className="mb-6 w-44 min-w-44 shrink-0 grow-0 basis-1/5">
+    <Link to={handle} className="mb-0 w-28 min-w-28 shrink-0 grow-0 basis-1/5">
       <div className="transition-all duration-100 hover:scale-105">
         <h1 className="flex h-10 items-center justify-center text-center text-xl">
           {title}
@@ -91,12 +91,15 @@ function ProductCard({ title, image, price }) {
   return (
     <div className="mb-6 flex min-h-52  min-w-36 shrink-0 grow-0 basis-1/5 flex-col items-center justify-center rounded-md pb-2 shadow-md">
       <img src={image} className="aspect-square rounded-md object-cover "></img>
-      <h1 className="text-l flex items-center justify-center pl-2 pr-2 pt-2 text-center">
-        {title}
-      </h1>
-      <h1 className="text-l flex items-center justify-center pl-2 pr-2 pt-2 text-center">
-        {price}
-      </h1>
+      <div className="h-16">
+        <h1 className="text-l flex items-center justify-center pl-2 pr-2 pt-2 text-center">
+          {title}
+        </h1>
+        <h1 className="text-l flex items-center justify-center pl-2 pr-2 pt-2 text-center">
+          {price}
+        </h1>
+      </div>
+
       <QuantityPicker
         handleAddClick={handleAddClick}
         handleSubtractClick={handleSubtractClick}
@@ -153,7 +156,7 @@ function CartProductCard({ title, image, price, quantity }) {
       <div className="flex items-center justify-center">
         <img
           src={image}
-          className="min-w-[100px] max-w-[100px] rounded-l-lg"
+          className="min-w-[112px] max-w-[112px] rounded-l-lg"
         ></img>
       </div>
       <div className="flex w-full flex-col justify-between rounded-r-lg bg-slate-300 shadow-lg">
@@ -161,13 +164,16 @@ function CartProductCard({ title, image, price, quantity }) {
           <p className="font-semibold">{title}</p>
           <p>{price}</p>
         </div>
-        <div className="p-1">
-          <p>{quantity}</p>
-          <QuantityPicker
-            handleSubtractClick={handleSubtractClick}
-            handleAddClick={handleAddClick}
-            count={count}
-          />
+        <div className="flex items-center p-1">
+          <p>Quantity:</p>
+          <div className="w-2/4">
+            <QuantityPicker
+              handleSubtractClick={handleSubtractClick}
+              handleAddClick={handleAddClick}
+              count={count}
+              className="h-5 w-5"
+            />
+          </div>
         </div>
       </div>
     </div>

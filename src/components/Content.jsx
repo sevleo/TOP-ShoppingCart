@@ -44,7 +44,7 @@ export default Content;
 function HomeContent({ showCart, setShowCart }) {
   return (
     <div id="content" className={`${showCart ? "blur-sm" : ""} h-full`}>
-      <h1 className="ml-auto mr-auto flex max-w-screen-xl flex-wrap items-start justify-center gap-5 pb-6 pl-6 pr-6 pt-6 text-3xl ">
+      <h1 className="ml-auto mr-auto flex h-[calc(100vh-112px)] max-w-screen-xl flex-wrap items-start gap-5 overflow-auto pb-6 pl-6 pr-6 pt-6 text-3xl">
         This is home content
       </h1>
     </div>
@@ -56,7 +56,7 @@ function CollectionsContent({ collections, showCart, setShowCart }) {
     return (
       <div
         id="content"
-        className={`${showCart ? "blur-sm" : ""} ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-10 pb-6 pl-6 pr-6 pt-6`}
+        className={`${showCart ? "blur-sm" : ""} ml-auto mr-auto flex h-[calc(100vh-112px)] max-w-screen-xl flex-col items-center gap-4 overflow-auto pb-6 pl-6 pr-6 pt-6 `}
       >
         <div className="ml-12 mt-6 -skew-y-3 self-start bg-black text-white">
           <p className="skew-y-3 p-5 text-3xl">Collections</p>
@@ -103,7 +103,8 @@ function ProductsContent({ selectedCollection, showCart, setShowCart }) {
     return (
       <div
         id="content"
-        className={`${showCart ? "blur-sm" : ""} ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-5 pb-6 pl-6 pr-6 pt-6`}
+        // className={`${showCart ? "blur-sm" : ""} ml-auto mr-auto flex max-w-screen-xl flex-col items-center justify-center gap-5 pb-6 pl-6 pr-6 pt-6`}
+        className={`${showCart ? "blur-sm" : ""} ml-auto mr-auto flex h-[calc(100vh-112px)] max-w-screen-xl flex-col items-center gap-5 overflow-auto pb-6 pl-6 pr-6 pt-6 `}
       >
         <div className="ml-12 mt-6 -skew-y-3 self-start bg-black text-white">
           <p className="skew-y-3 p-5 text-3xl">
