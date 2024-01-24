@@ -26,29 +26,17 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <Home setShowCart={setShowCart} showCart={showCart} onClick={onClick} />
-      ),
+      element: <Home setShowCart={setShowCart} showCart={showCart} />,
       errorElement: <ErrorPage />,
     },
     {
       path: "/collections",
-      element: (
-        <Collections
-          setShowCart={setShowCart}
-          showCart={showCart}
-          onClick={onClick}
-        />
-      ),
+      element: <Collections setShowCart={setShowCart} showCart={showCart} />,
     },
     {
       path: "/collections/:name",
       element: (
-        <CollectionProducts
-          setShowCart={setShowCart}
-          showCart={showCart}
-          onClick={onClick}
-        />
+        <CollectionProducts setShowCart={setShowCart} showCart={showCart} />
       ),
     },
   ]);
@@ -57,7 +45,7 @@ const Router = () => {
     <CollectionsDataProvider>
       <CartDataProvider>
         <RouterProvider router={router} />
-        {showCart ? <Cart /> : null}
+        {showCart ? <Cart onClick={onClick} /> : null}
       </CartDataProvider>
     </CollectionsDataProvider>
   );

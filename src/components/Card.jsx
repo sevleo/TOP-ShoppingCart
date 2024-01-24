@@ -127,11 +127,22 @@ ProductCard.propTypes = {
 
 function CartProductCard({ title, image, price, quantity }) {
   return (
-    <div>
-      <p>{title}</p>
-      <p>{price}</p>
-      <p>{quantity}</p>
-      <img src={image}></img>
+    <div className="flex max-h-32 w-full flex-row p-2">
+      <div className="flex items-center justify-center">
+        <img
+          src={image}
+          className="min-w-[100px] max-w-[100px] rounded-l-lg"
+        ></img>
+      </div>
+      <div className="flex w-full flex-col justify-between rounded-r-lg bg-slate-300 shadow-lg">
+        <div className="p-1">
+          <p className="font-semibold">{title}</p>
+          <p>{price}</p>
+        </div>
+        <div className="p-1">
+          <p>{quantity}</p>
+        </div>
+      </div>
     </div>
   );
 }

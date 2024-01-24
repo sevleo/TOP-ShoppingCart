@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         greenCustom: "#24503A",
+        backDrop: "#4d4d4d",
       },
     },
   },

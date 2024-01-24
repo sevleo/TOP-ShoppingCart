@@ -5,6 +5,7 @@ const CartContext = React.createContext();
 
 export const CartDataProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(0);
 
   const updateCart = (newCartValue) => {
     setCart((prevCart) => {
@@ -12,12 +13,18 @@ export const CartDataProvider = ({ children }) => {
         (item) => item.title === newCartValue.title
       );
       if (existingItem) {
+        setQuantity((prevQuantity) => {
+          return prevQuantity + newCartValue.quantity;
+        });
         return prevCart.map((item) =>
           item.title === newCartValue.title
             ? { ...item, quantity: newCartValue.quantity + item.quantity }
             : item
         );
       }
+      setQuantity((prevQuantity) => {
+        return prevQuantity + newCartValue.quantity;
+      });
       return [...prevCart, newCartValue];
     });
   };
@@ -25,6 +32,7 @@ export const CartDataProvider = ({ children }) => {
   const contextValue = {
     cart,
     setCart: updateCart,
+    quantity,
   };
 
   return (

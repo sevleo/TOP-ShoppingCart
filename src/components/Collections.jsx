@@ -3,25 +3,20 @@ import Content from "./Content.jsx";
 import Footer from "./Footer.jsx";
 import { useCollections } from "./CollectionsContext.jsx";
 
-function Collections({ setShowCart, showCart, onClick }) {
+function Collections({ setShowCart, showCart }) {
   const collections = useCollections();
   console.log(collections);
 
   return (
     <>
-      <Navigation
-        setShowCart={setShowCart}
-        showCart={showCart}
-        onClick={onClick}
-      />
+      <Navigation setShowCart={setShowCart} showCart={showCart} />
       <Content
         type="collections"
         collections={collections}
         showCart={showCart}
         setShowCart={setShowCart}
-        onClick={onClick}
       />
-      <Footer showCart={showCart} onClick={onClick} />
+      <Footer showCart={showCart} />
     </>
   );
 }
