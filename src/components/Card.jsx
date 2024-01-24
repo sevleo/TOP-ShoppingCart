@@ -39,6 +39,7 @@ Card.propTypes = {
   price: PropTypes.string,
 };
 
+// Collection cards
 function CollectionCard({ title, image, handle }) {
   return (
     <Link to={handle} className="mb-6 w-44 min-w-44 shrink-0 grow-0 basis-1/5">
@@ -61,6 +62,7 @@ CollectionCard.propTypes = {
   handle: PropTypes.string.isRequired,
 };
 
+// Product cards on collection view
 function ProductCard({ title, image, price }) {
   const cartContext = useCart();
 
@@ -116,6 +118,7 @@ ProductCard.propTypes = {
   price: PropTypes.string,
 };
 
+// Product cards on cart view
 function CartProductCard({ title, image, price, quantity }) {
   const cartContext = useCart();
 
@@ -128,22 +131,19 @@ function CartProductCard({ title, image, price, quantity }) {
       price: price,
       quantity: count + 1,
     };
-    cartContext.updateQuantity(item);
+    cartContext.updateQuantity(item, 1);
     setCount(count + 1);
   }
 
-  // useEffect(() => {
-  //   const item = {
-  //     title: title,
-  //     image: image,
-  //     price: price,
-  //     quantity: count,
-  //   };
-  //   cartContext.updateQuantity(item);
-  // }, [count]);
-
   function handleSubtractClick() {
     if (count !== 1) {
+      const item = {
+        title: title,
+        image: image,
+        price: price,
+        quantity: count - 1,
+      };
+      cartContext.updateQuantity(item, -1);
       setCount(count - 1);
     }
   }

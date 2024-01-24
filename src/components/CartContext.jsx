@@ -7,48 +7,39 @@ export const CartDataProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(0);
 
+  // Update cart when adding items to cart from collection view
   const updateCart = (newCartValue) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find(
-        (item) => item.title === newCartValue.title
-      );
-      if (existingItem) {
-        // Update global quantity count
-        setQuantity((prevQuantity) => {
-          return prevQuantity + newCartValue.quantity;
-        });
+    // Check if this item is already in cart...
+    const existingItem = cart.find((item) => item.title === newCartValue.title);
+    // and if it is, update its quantity value
+    if (existingItem) {
+      setCart((prevCart) => {
         return prevCart.map((item) =>
           item.title === newCartValue.title
             ? { ...item, quantity: newCartValue.quantity + item.quantity }
             : item
         );
-      }
-      // Update global quantity count
-      setQuantity((prevQuantity) => {
-        return prevQuantity + newCartValue.quantity;
       });
-      return [...prevCart, newCartValue];
-    });
+    } else {
+      // and if it is not, add the new item to the cart
+      setCart([...cart, newCartValue]);
+    }
+    // finally, update total cart quantity value
+    setQuantity(quantity + newCartValue.quantity);
   };
 
-  // Update quantity
-  const updateQuantity = (newCartValue) => {
+  // Update cart when adding items to cart from cart view
+  const updateQuantity = (newCartValue, increment) => {
+    // Update item quantity value
     setCart((prevCart) => {
-      const existingItem = prevCart.find(
-        (item) => item.title === newCartValue.title
+      return prevCart.map((item) =>
+        item.title === newCartValue.title
+          ? { ...item, quantity: newCartValue.quantity }
+          : item
       );
-      if (existingItem) {
-        console.log(contextValue);
-        // Update global quantity count
-        setQuantity(contextValue.quantity + 1);
-        // Update item quantity
-        return prevCart.map((item) =>
-          item.title === newCartValue.title
-            ? { ...item, quantity: newCartValue.quantity }
-            : item
-        );
-      }
     });
+    // Update total cart quantity value
+    setQuantity(contextValue.quantity + increment);
   };
 
   const contextValue = {
