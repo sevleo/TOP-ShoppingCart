@@ -107,7 +107,7 @@ function ProductCard({ title, image, price }) {
       />
       <button
         onClick={handleAddToCartClick}
-        className="bg-greenCustom w-11/12 p-2 text-white transition-all duration-100 active:bg-black"
+        className="bg-greenCustom mt-2 w-11/12 p-2 text-white transition-all duration-100 active:bg-black"
       >
         Add to cart
       </button>
