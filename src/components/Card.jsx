@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useCart } from "./CartContext";
+import QuantityPicker from "./QuantityPicker";
 
 function Card({ id, type, title, image, handle, price, quantity }) {
   if (type === "collection") {
@@ -94,21 +95,11 @@ function ProductCard({ title, image, price }) {
       <h1 className="text-l flex items-center justify-center pl-2 pr-2 pt-2 text-center">
         {price}
       </h1>
-      <div className="flex w-11/12 items-center justify-around p-2">
-        <button
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-black p-0 text-center text-white transition-all duration-100 hover:border-none hover:outline-none focus:border-none focus:outline-none active:scale-105"
-          onClick={handleSubtractClick}
-        >
-          -
-        </button>
-        <p className="w-6 text-center">{count}</p>
-        <button
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-black p-0 text-center text-white transition-all duration-100 hover:border-none hover:outline-none focus:border-none focus:outline-none active:scale-105"
-          onClick={handleAddClick}
-        >
-          +
-        </button>
-      </div>
+      <QuantityPicker
+        handleAddClick={handleAddClick}
+        handleSubtractClick={handleSubtractClick}
+        count={count}
+      />
       <button
         onClick={handleAddToCartClick}
         className="bg-greenCustom w-11/12 p-2 text-white transition-all duration-100 active:bg-black"
