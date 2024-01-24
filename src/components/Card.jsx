@@ -152,20 +152,25 @@ function CartProductCard({ title, image, price, quantity }) {
   }
 
   return (
-    <div className="flex max-h-32 w-full flex-row p-2">
+    <div className="flex max-h-32 w-full flex-row pb-3 pl-5 pr-5 pt-3">
       <div className="flex items-center justify-center">
         <img
           src={image}
-          className="min-w-[112px] max-w-[112px] rounded-l-lg"
+          className="min-w-[104px] max-w-[104px] rounded-l-lg"
         ></img>
       </div>
       <div className="flex w-full flex-col justify-between rounded-r-lg bg-slate-300 shadow-lg">
-        <div className="p-1">
-          <p className="font-semibold">{title}</p>
-          <p>{price}</p>
+        <div className="flex justify-between p-1">
+          <div>
+            <p className="text-sm font-semibold">{title}</p>
+            <p className="text-sm">{price}</p>
+          </div>
+          <div>
+            <button className="h-4 w-4 text-sm">del</button>
+          </div>
         </div>
         <div className="flex items-center p-1">
-          <p>Quantity:</p>
+          <p className="text-sm">Quantity:</p>
           <div className="w-2/4">
             <QuantityPicker
               handleSubtractClick={handleSubtractClick}
