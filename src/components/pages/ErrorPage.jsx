@@ -1,7 +1,7 @@
 const ErrorPage = () => {
   return (
-    <div>
-      <h1>Oh no, this route does not exist!</h1>
+    <div className="flex h-full w-full items-center justify-center">
+      <h1>Oh no! This page did not come into being.</h1>
     </div>
   );
 };
