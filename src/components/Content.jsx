@@ -89,17 +89,11 @@ CollectionsContent.propTypes = {
 };
 
 function ProductsContent({ selectedCollection, showCart, setShowCart }) {
-  const prices = ["$40", "$50", "$60", "$70", "$80", "$90", "$100", "$110"];
-
-  function getRandomPrice() {
-    const randomIndex = Math.floor(Math.random() * prices.length);
-    return prices[randomIndex];
-  }
-
   if (
     selectedCollection &&
     selectedCollection.data.collection.products.edges.length > 0
   ) {
+    console.log(selectedCollection);
     return (
       <div
         id="content"
@@ -122,7 +116,7 @@ function ProductsContent({ selectedCollection, showCart, setShowCart }) {
               type="product"
               title={product.node.title}
               image={product.node.featuredImage.url}
-              price={getRandomPrice()}
+              price={product.node.price}
             />
           ))}
         </div>

@@ -79,11 +79,14 @@ function ProductCard({ title, image, price }) {
   }
 
   function handleAddToCartClick() {
+    const priceNumber = parseFloat(price.replace("$", ""));
+
     const item = {
       title: title,
       image: image,
       price: price,
       quantity: count,
+      totalPrice: priceNumber * count,
     };
     cartContext.setCart(item);
   }
@@ -134,6 +137,7 @@ function CartProductCard({ title, image, price, quantity }) {
       price: price,
       quantity: count + 1,
     };
+    console.log(item);
     cartContext.updateQuantity(item, 1);
     setCount(count + 1);
   }

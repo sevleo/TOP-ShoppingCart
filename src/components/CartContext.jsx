@@ -16,7 +16,11 @@ export const CartDataProvider = ({ children }) => {
       setCart((prevCart) => {
         return prevCart.map((item) =>
           item.title === newCartValue.title
-            ? { ...item, quantity: newCartValue.quantity + item.quantity }
+            ? {
+                ...item,
+                quantity: newCartValue.quantity + item.quantity,
+                totalPrice: newCartValue.totalPrice + item.totalPrice,
+              }
             : item
         );
       });
@@ -30,11 +34,19 @@ export const CartDataProvider = ({ children }) => {
 
   // Update cart when adding items to cart from cart view
   const updateQuantity = (newCartValue, increment) => {
+    const priceNumber = parseFloat(newCartValue.price.replace("$", ""));
+    console.log(priceNumber);
+    console.log(newCartValue);
+
     // Update item quantity value
     setCart((prevCart) => {
       return prevCart.map((item) =>
         item.title === newCartValue.title
-          ? { ...item, quantity: newCartValue.quantity }
+          ? {
+              ...item,
+              quantity: newCartValue.quantity,
+              totalPrice: priceNumber * newCartValue.quantity,
+            }
           : item
       );
     });

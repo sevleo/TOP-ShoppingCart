@@ -37,6 +37,13 @@ export const CollectionsDataProvider = ({ children }) => {
   const [collectionsWithProducts, setCollectionsWithProducts] = useState();
 
   useEffect(() => {
+    const prices = ["$40", "$50", "$60", "$70", "$80", "$90", "$100", "$110"];
+
+    function getRandomPrice() {
+      const randomIndex = Math.floor(Math.random() * prices.length);
+      return prices[randomIndex];
+    }
+
     if (collections) {
       const collectionsWithDataLocalStorageData =
         checkCollectionsWithProductsData();
@@ -58,6 +65,13 @@ export const CollectionsDataProvider = ({ children }) => {
           }
         });
         const newCollectionsWithProducts = await Promise.all(promises);
+        if (newCollectionsWithProducts) {
+          newCollectionsWithProducts.forEach((collection) => {
+            collection.data.collection.products.edges.forEach((product) => {
+              product.node.price = getRandomPrice();
+            });
+          });
+        }
         setCollectionsWithProducts(newCollectionsWithProducts);
         saveCollectionsWithProductsData(newCollectionsWithProducts);
       };

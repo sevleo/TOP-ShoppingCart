@@ -24,7 +24,7 @@ function Cart({ onClick }) {
                 type="cart product"
                 image={item.image}
                 title={item.title}
-                price={item.price}
+                price={"$" + item.totalPrice}
                 quantity={item.quantity}
               />
             ))}
