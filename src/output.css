@@ -548,12 +548,44 @@ video {
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
 .right-0 {
   right: 0px;
 }
 
 .top-0 {
   top: 0px;
+}
+
+.right-\[-10px\] {
+  right: -10px;
+}
+
+.top-\[-5px\] {
+  top: -5px;
+}
+
+.right-\[0px\] {
+  right: 0px;
+}
+
+.top-\[0px\] {
+  top: 0px;
+}
+
+.right-\[-5px\] {
+  right: -5px;
+}
+
+.right-\[-15px\] {
+  right: -15px;
 }
 
 .z-10 {
@@ -688,6 +720,10 @@ video {
   height: 1rem;
 }
 
+.h-\[16px\] {
+  height: 16px;
+}
+
 .max-h-32 {
   max-height: 8rem;
 }
@@ -806,6 +842,10 @@ video {
 
 .min-w-\[104px\] {
   min-width: 104px;
+}
+
+.min-w-\[16px\] {
+  min-width: 16px;
 }
 
 .max-w-\[112px\] {
@@ -981,6 +1021,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1008,6 +1053,10 @@ video {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-0\.5 {
+  padding: 0.125rem;
 }
 
 .pb-2 {
@@ -1085,6 +1134,11 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .font-semibold {
@@ -1233,8 +1287,16 @@ button:focus-visible {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
+}
+
 .hover\:border-none:hover {
   border-style: none;
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
 }
 
 .hover\:outline-none:hover {
