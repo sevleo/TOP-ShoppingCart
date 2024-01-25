@@ -24,13 +24,16 @@ function Cart({ onClick }) {
                 type="cart product"
                 image={item.image}
                 title={item.title}
-                price={"$" + item.totalPrice}
+                price={item.price}
                 quantity={item.quantity}
+                totalPrice={item.totalPrice}
               />
             ))}
 
             <div className="mt-8"></div>
-            <p className="mt-auto pb-3 pl-5 pr-5 pt-3 text-2xl">Total $</p>
+            <p className="mt-auto pb-3 pl-5 pr-5 pt-3 text-2xl">
+              Total ${cartContext.totalCartPrice}
+            </p>
             <button className="mb-3 ml-5 mr-5 mt-3">Checkout $1304</button>
           </>
         ) : (

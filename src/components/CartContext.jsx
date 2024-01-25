@@ -6,6 +6,7 @@ const CartContext = React.createContext();
 export const CartDataProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(0);
+  const [totalCartPrice, setTotalCartPrice] = useState(0);
 
   // Update cart when adding items to cart from collection view
   const updateCart = (newCartValue) => {
@@ -30,13 +31,12 @@ export const CartDataProvider = ({ children }) => {
     }
     // finally, update total cart quantity value
     setQuantity(quantity + newCartValue.quantity);
+    setTotalCartPrice(totalCartPrice + newCartValue.totalPrice);
   };
 
   // Update cart when adding items to cart from cart view
   const updateQuantity = (newCartValue, increment) => {
     const priceNumber = parseFloat(newCartValue.price.replace("$", ""));
-    console.log(priceNumber);
-    console.log(newCartValue);
 
     // Update item quantity value
     setCart((prevCart) => {
@@ -52,6 +52,7 @@ export const CartDataProvider = ({ children }) => {
     });
     // Update total cart quantity value
     setQuantity(contextValue.quantity + increment);
+    setTotalCartPrice(contextValue.totalCartPrice + priceNumber * increment);
   };
 
   const contextValue = {
@@ -59,6 +60,7 @@ export const CartDataProvider = ({ children }) => {
     setCart: updateCart,
     updateQuantity: updateQuantity,
     quantity,
+    totalCartPrice,
   };
 
   return (

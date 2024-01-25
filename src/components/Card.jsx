@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "./CartContext";
 import QuantityPicker from "./QuantityPicker";
 
-function Card({ id, type, title, image, handle, price, quantity }) {
+function Card({ id, type, title, image, handle, price, quantity, totalPrice }) {
   if (type === "collection") {
     return (
       <CollectionCard id={id} title={title} image={image} handle={handle} />
@@ -23,6 +23,7 @@ function Card({ id, type, title, image, handle, price, quantity }) {
         image={image}
         price={price}
         quantity={quantity}
+        totalPrice={totalPrice}
       />
     );
   }
@@ -125,7 +126,7 @@ ProductCard.propTypes = {
 };
 
 // Product cards on cart view
-function CartProductCard({ title, image, price, quantity }) {
+function CartProductCard({ title, image, price, quantity, totalPrice }) {
   const cartContext = useCart();
 
   const [count, setCount] = useState(quantity);
@@ -137,7 +138,6 @@ function CartProductCard({ title, image, price, quantity }) {
       price: price,
       quantity: count + 1,
     };
-    console.log(item);
     cartContext.updateQuantity(item, 1);
     setCount(count + 1);
   }
@@ -167,7 +167,7 @@ function CartProductCard({ title, image, price, quantity }) {
         <div className="flex justify-between p-1">
           <div>
             <p className="text-sm font-semibold">{title}</p>
-            <p className="text-sm">{price}</p>
+            <p className="text-sm">{"$" + totalPrice}</p>
           </div>
           <div>
             <button className="h-4 w-4 text-sm">del</button>
