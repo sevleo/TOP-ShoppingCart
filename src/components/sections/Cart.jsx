@@ -1,9 +1,8 @@
-import { useCart } from "./CartContext.jsx";
-import Card from "./Card.jsx";
+import { useCart } from "../utils/CartContext.jsx";
+import Card from "../buildingBlocks/Card.jsx";
 
 function Cart({ onClick }) {
   const cartContext = useCart();
-  console.log(cartContext);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { useCart } from "./CartContext";
+import { useCart } from "../utils/CartContext";
 import QuantityPicker from "./QuantityPicker";
 
 function Card({ id, type, title, image, handle, price, quantity, totalPrice }) {

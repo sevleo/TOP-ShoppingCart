@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Card from "./Card";
+import Card from "../buildingBlocks/Card";
 
 function Content({
   type,
@@ -93,7 +93,6 @@ function ProductsContent({ selectedCollection, showCart, setShowCart }) {
     selectedCollection &&
     selectedCollection.data.collection.products.edges.length > 0
   ) {
-    console.log(selectedCollection);
     return (
       <div
         id="content"

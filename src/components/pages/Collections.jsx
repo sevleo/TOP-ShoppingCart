@@ -1,11 +1,10 @@
-import Navigation from "./Navigation.jsx";
-import Content from "./Content.jsx";
-import Footer from "./Footer.jsx";
-import { useCollections } from "./CollectionsContext.jsx";
+import Navigation from "../sections/Navigation.jsx";
+import Content from "../sections/Content.jsx";
+import Footer from "../sections/Footer.jsx";
+import { useCollections } from "../utils/CollectionsContext.jsx";
 
 function Collections({ setShowCart, showCart }) {
   const collections = useCollections();
-  console.log(collections);
 
   return (
     <>

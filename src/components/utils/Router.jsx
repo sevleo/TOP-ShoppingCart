@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./Home";
-import ErrorPage from "./ErrorPage";
-import Collections from "./Collections";
-import { CollectionsDataProvider } from "./CollectionsContext";
-import CollectionProducts from "./CollectionProducts";
-import { CartDataProvider } from "./CartContext";
+import Home from "../pages/Home.jsx";
+import Collections from "../pages/Collections.jsx";
+import ErrorPage from "../pages/ErrorPage.jsx";
+import { CollectionsDataProvider } from "./CollectionsContext.jsx";
+import CollectionProducts from "../pages/CollectionProducts.jsx";
+import { CartDataProvider } from "./CartContext.jsx";
 import { useState } from "react";
-import Cart from "./Cart";
+import Cart from "../sections/Cart.jsx";
 
 const Router = () => {
   const [showCart, setShowCart] = useState(false);

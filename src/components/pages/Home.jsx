@@ -1,12 +1,8 @@
-import Navigation from "./Navigation";
-import Content from "./Content";
-import Footer from "./Footer";
-import { useCollections } from "./CollectionsContext.jsx";
+import Navigation from "../sections/Navigation.jsx";
+import Content from "../sections/Content.jsx";
+import Footer from "../sections/Footer.jsx";
 
 function Home({ setShowCart, showCart }) {
-  const collections = useCollections();
-  console.log(collections);
-
   return (
     <>
       <Navigation showCart={showCart} setShowCart={setShowCart} />

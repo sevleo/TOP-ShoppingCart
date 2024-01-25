@@ -5,7 +5,7 @@ import {
   saveCollectionsWithProductsData,
   checkCollectionsData,
   checkCollectionsWithProductsData,
-} from "../LocalStorageModule.js";
+} from "../../LocalStorageModule.js";
 import PropTypes from "prop-types";
 
 // Data provider for Home and Collection pages
