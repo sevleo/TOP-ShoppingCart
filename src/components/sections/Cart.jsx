@@ -42,7 +42,7 @@ function Cart({ onClick }) {
             <p className="mt-auto pb-3 pl-5 pr-5 pt-3 text-2xl">
               Total ${cartContext.totalCartPrice}
             </p>
-            <button className="mb-3 ml-5 mr-5 mt-3 text-white">
+            <button className="bg-greenCustom mb-3 ml-5 mr-5 mt-3 text-white">
               Checkout for {"$" + cartContext.totalCartPrice}
             </button>
           </>

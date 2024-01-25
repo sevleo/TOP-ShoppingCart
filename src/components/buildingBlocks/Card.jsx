@@ -181,7 +181,7 @@ function CartProductCard({ title, image, price, quantity, totalPrice }) {
           </div>
         </div>
         <div className="flex items-center p-1">
-          <p className="text-sm">Quantity:</p>
+          <p className="mr-2 text-sm">Quantity:</p>
           <div className="w-2/4">
             <QuantityPicker
               handleSubtractClick={handleSubtractClick}
