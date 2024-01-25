@@ -164,13 +164,13 @@ function CartProductCard({ title, image, price, quantity, totalPrice }) {
         ></img>
       </div>
       <div className="flex w-full flex-col justify-between rounded-r-lg bg-slate-300 shadow-lg">
-        <div className="flex justify-between p-1">
+        <div className="relative flex justify-between p-1">
           <div>
             <p className="text-sm font-semibold">{title}</p>
             <p className="text-sm">{"$" + totalPrice}</p>
           </div>
-          <div>
-            <button className="h-4 w-4 text-sm">del</button>
+          <div className="absolute right-[10px] top-[10px] hover:cursor-pointer">
+            <span className="material-symbols-outlined">delete</span>
           </div>
         </div>
         <div className="flex items-center p-1">
