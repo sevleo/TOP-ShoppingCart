@@ -155,6 +155,10 @@ function CartProductCard({ title, image, price, quantity, totalPrice }) {
     }
   }
 
+  function handleDeleteClick() {
+    cartContext.removeCartItem(title, quantity, totalPrice);
+  }
+
   return (
     <div className="flex max-h-32 w-full flex-row pb-3 pl-5 pr-5 pt-3">
       <div className="flex items-center justify-center">
@@ -169,7 +173,10 @@ function CartProductCard({ title, image, price, quantity, totalPrice }) {
             <p className="text-sm font-semibold">{title}</p>
             <p className="text-sm">{"$" + totalPrice}</p>
           </div>
-          <div className="absolute right-[10px] top-[10px] hover:cursor-pointer">
+          <div
+            className="absolute right-[10px] top-[10px] hover:cursor-pointer"
+            onClick={handleDeleteClick}
+          >
             <span className="material-symbols-outlined">delete</span>
           </div>
         </div>

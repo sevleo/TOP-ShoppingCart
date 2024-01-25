@@ -55,12 +55,24 @@ export const CartDataProvider = ({ children }) => {
     setTotalCartPrice(contextValue.totalCartPrice + priceNumber * increment);
   };
 
+  // Update cart when deleting items
+  const removeCartItem = (title, subtractQuantity, subtractTotalPrice) => {
+    setCart((prevCart) => {
+      return prevCart.filter((item) => {
+        return item.title !== title;
+      });
+    });
+    setQuantity(quantity - subtractQuantity);
+    setTotalCartPrice(totalCartPrice - subtractTotalPrice);
+  };
+
   const contextValue = {
     cart,
     setCart: updateCart,
     updateQuantity: updateQuantity,
     quantity,
     totalCartPrice,
+    removeCartItem: removeCartItem,
   };
 
   return (
