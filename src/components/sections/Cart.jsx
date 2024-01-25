@@ -47,7 +47,18 @@ function Cart({ onClick }) {
             </button>
           </>
         ) : (
-          <p>The cart is empty</p>
+          <div className="relative flex flex-col items-center justify-center gap-10 pb-3 pl-5 pr-5 pt-3">
+            <div
+              className="absolute right-[10px] top-[10px] hover:cursor-pointer"
+              onClick={onClick}
+            >
+              <span className="material-symbols-outlined">close</span>
+            </div>
+            <p className="mt-10  gap-5 text-2xl">The cart is empty</p>
+            <span className="material-symbols-outlined !text-[60px]">
+              sentiment_dissatisfied
+            </span>
+          </div>
         )}
       </div>
     </>

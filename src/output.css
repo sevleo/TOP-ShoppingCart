@@ -644,6 +644,10 @@ video {
   margin-top: auto;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -827,6 +831,10 @@ video {
   gap: 1.25rem;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .self-start {
   align-self: flex-start;
 }
@@ -994,6 +1002,18 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-\[100px\] {
+  font-size: 100px;
+}
+
+.\!text-\[100px\] {
+  font-size: 100px !important;
+}
+
+.\!text-\[60px\] {
+  font-size: 60px !important;
 }
 
 .font-semibold {
