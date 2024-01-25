@@ -765,6 +765,10 @@ video {
   max-width: 1280px;
 }
 
+.max-w-\[1600px\] {
+  max-width: 1600px;
+}
+
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -839,8 +843,16 @@ video {
   align-self: flex-start;
 }
 
+.self-center {
+  align-self: center;
+}
+
 .justify-self-start {
   justify-self: start;
+}
+
+.justify-self-center {
+  justify-self: center;
 }
 
 .overflow-auto {
@@ -969,6 +981,10 @@ video {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pt-60 {
+  padding-top: 15rem;
 }
 
 .text-center {
