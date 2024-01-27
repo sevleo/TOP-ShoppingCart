@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Card from "../buildingBlocks/Card";
 import { Link } from "react-router-dom";
+import treeImage from "../../assets/tree.png";
 
 function Content({
   type,
@@ -67,7 +68,7 @@ function HomeContent({ showCart }) {
         </div>
       </h2>
       <div className="mt-auto">
-        <img className="h-40" src="../../../img/tree.png"></img>
+        <img className="h-40" src={treeImage}></img>
       </div>
     </div>
   );
