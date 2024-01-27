@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Card from "../buildingBlocks/Card";
+import { Link } from "react-router-dom";
 
 function Content({
   type,
@@ -45,10 +46,29 @@ export default Content;
 
 function HomeContent({ showCart }) {
   return (
-    <div id="content" className={`${showCart ? "blur-sm" : ""} h-full`}>
-      <h1 className="ml-auto mr-auto flex h-[calc(100vh-112px)] max-w-screen-xl flex-wrap items-start gap-5 overflow-auto pb-6 pl-6 pr-6 pt-6 text-3xl">
-        This is home content
+    <div
+      id="content"
+      className={`${showCart ? "blur-sm" : ""} flex h-[calc(100vh-112px)] min-h-20 flex-col items-center justify-start gap-4`}
+    >
+      <h1 className="max-w-screen-xlflex-wrap mb-6 ml-auto mr-auto mt-6 flex flex-shrink-0  items-start  gap-5 overflow-hidden text-3xl">
+        Welcome to our store
       </h1>
+      <h2>Green is our favorite color</h2>
+
+      <h2>
+        {" "}
+        <div className="bg-greenCustom mt-6 flex h-20 -skew-y-3 items-center justify-center self-start">
+          <Link
+            to="/collections"
+            className="p-6 text-[30px] text-white hover:text-black "
+          >
+            Shop here!
+          </Link>
+        </div>
+      </h2>
+      <div className="mt-auto">
+        <img className="h-40" src="../../../public/tree.png"></img>
+      </div>
     </div>
   );
 }
@@ -65,7 +85,7 @@ function CollectionsContent({ collections, showCart }) {
         className={`${showCart ? "blur-sm" : ""} flex h-[calc(100vh-112px)] w-full max-w-[1600px] flex-col items-center gap-4 self-center overflow-auto pb-6 pl-6 pr-6 pt-6 `}
       >
         <div className="ml-12 mt-6 -skew-y-3 self-start bg-black text-white">
-          <p className="skew-y-3 p-5 text-3xl">Our Collections</p>
+          <p className="skew-y-3 p-5 text-3xl">Collections</p>
         </div>
         <div className="max-w-screen-xl">
           <div className="flex flex-wrap items-start justify-center gap-5 ">

@@ -69,3 +69,15 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+#gh-logo {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  outline: black solid;
+}
+
+#gh-logo:hover {
+  transform: rotate(360deg) scale(1.2);
+}

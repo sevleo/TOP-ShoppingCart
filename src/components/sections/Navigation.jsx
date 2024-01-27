@@ -13,9 +13,12 @@ function Navigation({ setShowCart, showCart }) {
     <nav id="navigation" className={`${showCart ? "blur-sm" : ""} shadow-md`}>
       <ul className="ml-auto mr-auto flex h-20 max-w-screen-xl items-center justify-end gap-4 pb-3 pl-8 pr-8 pt-3">
         <li className="mr-auto">
-          <p className="text-greenCustom font-['Permanent_Marker'] text-3xl">
+          <Link
+            to="/"
+            className="text-greenCustom font-['Permanent_Marker'] text-3xl hover:cursor-pointer"
+          >
             NuevaShop
-          </p>
+          </Link>
         </li>
         <li>
           <Link to="/" className="hover:underline">
