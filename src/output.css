@@ -1189,7 +1189,7 @@ button:focus-visible {
 }
 
 #content.home {
-  background-image: url("public/background.jpg");
+  background-image: url("assets/background.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1197,7 +1197,7 @@ button:focus-visible {
 
 @media screen and (min-width: 950px) {
   #content.home {
-    background-image: url("public/background.jpg");
+    background-image: url("assets/background.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 950px;

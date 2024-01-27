@@ -67,7 +67,7 @@ function HomeContent({ showCart }) {
         </div>
       </h2>
       <div className="mt-auto">
-        <img className="h-40" src="../../../public/tree.png"></img>
+        <img className="h-40" src="../../../img/tree.png"></img>
       </div>
     </div>
   );
