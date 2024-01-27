@@ -65,7 +65,7 @@ function CollectionsContent({ collections, showCart }) {
         className={`${showCart ? "blur-sm" : ""} flex h-[calc(100vh-112px)] w-full max-w-[1600px] flex-col items-center gap-4 self-center overflow-auto pb-6 pl-6 pr-6 pt-6 `}
       >
         <div className="ml-12 mt-6 -skew-y-3 self-start bg-black text-white">
-          <p className="skew-y-3 p-5 text-3xl">Collections</p>
+          <p className="skew-y-3 p-5 text-3xl">Our Collections</p>
         </div>
         <div className="max-w-screen-xl">
           <div className="flex flex-wrap items-start justify-center gap-5 ">

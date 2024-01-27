@@ -1,11 +1,24 @@
 import { render, screen } from "@testing-library/react";
-import { it, describe, expect } from "vitest";
+import { it, describe, expect, beforeEach } from "vitest";
 import Router from "../src/components/utils/Router";
 
 describe("Router component", () => {
-  it("renders without crashing", () => {
+  beforeEach(() => {
     render(<Router />);
-    const header = screen.getByRole("heading", { level: 1 });
-    expect(header.textContent).toMatch(/This is home content/i);
+  });
+
+  it("header renders", () => {
+    const header = screen.getByRole("heading");
+    expect(header.textContent).toBe("This is home content");
+  });
+
+  it("navigation renders", () => {
+    const nav = screen.getByRole("navigation");
+    expect(nav).toBeInTheDocument();
+  });
+
+  it("footer renders", () => {
+    const footer = screen.getByRole("contentinfo");
+    expect(footer).toBeInTheDocument();
   });
 });
