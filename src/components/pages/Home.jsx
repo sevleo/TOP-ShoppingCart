@@ -1,6 +1,7 @@
 import Navigation from "../sections/Navigation.jsx";
 import Content from "../sections/Content.jsx";
 import Footer from "../sections/Footer.jsx";
+import PropTypes from "prop-types";
 
 function Home({ setShowCart, showCart }) {
   return (
@@ -11,5 +12,10 @@ function Home({ setShowCart, showCart }) {
     </>
   );
 }
+
+Home.propTypes = {
+  setShowCart: PropTypes.func.isRequired,
+  showCart: PropTypes.bool.isRequired,
+};
 
 export default Home;

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../utils/CartContext";
+import PropTypes from "prop-types";
 
 function Navigation({ setShowCart, showCart }) {
   const cartContext = useCart();
@@ -41,5 +42,10 @@ function Navigation({ setShowCart, showCart }) {
     </nav>
   );
 }
+
+Navigation.propTypes = {
+  setShowCart: PropTypes.func.isRequired,
+  showCart: PropTypes.bool.isRequired,
+};
 
 export default Navigation;

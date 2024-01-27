@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
+import PropTypes from "prop-types";
 
 const CartContext = React.createContext();
 
@@ -78,6 +79,10 @@ export const CartDataProvider = ({ children }) => {
   return (
     <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
+};
+
+CartDataProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export const useCart = () => useContext(CartContext);

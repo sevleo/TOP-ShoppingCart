@@ -37,11 +37,13 @@ Content.propTypes = {
   type: PropTypes.string.isRequired,
   collections: PropTypes.array,
   selectedCollection: PropTypes.object,
+  showCart: PropTypes.bool,
+  setShowCart: PropTypes.func,
 };
 
 export default Content;
 
-function HomeContent({ showCart, setShowCart }) {
+function HomeContent({ showCart }) {
   return (
     <div id="content" className={`${showCart ? "blur-sm" : ""} h-full`}>
       <h1 className="ml-auto mr-auto flex h-[calc(100vh-112px)] max-w-screen-xl flex-wrap items-start gap-5 overflow-auto pb-6 pl-6 pr-6 pt-6 text-3xl">
@@ -51,7 +53,11 @@ function HomeContent({ showCart, setShowCart }) {
   );
 }
 
-function CollectionsContent({ collections, showCart, setShowCart }) {
+HomeContent.propTypes = {
+  showCart: PropTypes.bool,
+};
+
+function CollectionsContent({ collections, showCart }) {
   if (collections && collections.length > 0) {
     return (
       <div
@@ -88,9 +94,10 @@ function CollectionsContent({ collections, showCart, setShowCart }) {
 
 CollectionsContent.propTypes = {
   collections: PropTypes.array,
+  showCart: PropTypes.bool,
 };
 
-function ProductsContent({ selectedCollection, showCart, setShowCart }) {
+function ProductsContent({ selectedCollection, showCart }) {
   if (
     selectedCollection &&
     selectedCollection.data.collection.products.edges.length > 0
@@ -140,4 +147,5 @@ function ProductsContent({ selectedCollection, showCart, setShowCart }) {
 
 ProductsContent.propTypes = {
   selectedCollection: PropTypes.object.isRequired,
+  showCart: PropTypes.bool,
 };

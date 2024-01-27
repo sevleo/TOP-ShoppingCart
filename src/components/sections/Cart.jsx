@@ -1,5 +1,6 @@
 import { useCart } from "../utils/CartContext.jsx";
 import Card from "../buildingBlocks/Card.jsx";
+import PropTypes from "prop-types";
 
 function Cart({ onClick }) {
   const cartContext = useCart();
@@ -64,5 +65,9 @@ function Cart({ onClick }) {
     </>
   );
 }
+
+Cart.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default Cart;

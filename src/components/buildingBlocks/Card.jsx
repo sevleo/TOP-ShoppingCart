@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useCart } from "../utils/CartContext";
 import QuantityPicker from "./QuantityPicker";
 
@@ -39,6 +39,7 @@ Card.propTypes = {
   handle: PropTypes.string,
   price: PropTypes.string,
   quantity: PropTypes.number,
+  totalPrice: PropTypes.number,
 };
 
 // Collection cards
@@ -125,7 +126,7 @@ function ProductCard({ title, image, price }) {
 ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  price: PropTypes.string,
+  price: PropTypes.string.isRequired,
 };
 
 // Product cards on cart view
@@ -198,3 +199,11 @@ function CartProductCard({ title, image, price, quantity, totalPrice }) {
     </div>
   );
 }
+
+CartProductCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+  totalPrice: PropTypes.number.isRequired,
+};

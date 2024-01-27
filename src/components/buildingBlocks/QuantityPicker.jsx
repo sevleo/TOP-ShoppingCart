@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function QuantityPicker({
   handleSubtractClick,
   handleAddClick,
@@ -24,5 +26,12 @@ function QuantityPicker({
     </>
   );
 }
+
+QuantityPicker.propTypes = {
+  handleSubtractClick: PropTypes.func.isRequired,
+  handleAddClick: PropTypes.func.isRequired,
+  count: PropTypes.number.isRequired,
+  className: PropTypes.string.isRequired,
+};
 
 export default QuantityPicker;

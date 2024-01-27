@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Footer({ showCart }) {
   return (
     <footer
@@ -7,5 +9,9 @@ function Footer({ showCart }) {
     </footer>
   );
 }
+
+Footer.propTypes = {
+  showCart: PropTypes.bool.isRequired,
+};
 
 export default Footer;

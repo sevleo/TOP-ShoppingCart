@@ -4,6 +4,7 @@ import Footer from "../sections/Footer.jsx";
 import { useCollections } from "../utils/CollectionsContext.jsx";
 import Content from "../sections/Content.jsx";
 import ScrollToTop from "../utils/ScrollToTop.jsx";
+import PropTypes from "prop-types";
 
 function CollectionProducts({ setShowCart, showCart }) {
   const collections = useCollections();
@@ -34,5 +35,10 @@ function CollectionProducts({ setShowCart, showCart }) {
     </>
   );
 }
+
+CollectionProducts.propTypes = {
+  setShowCart: PropTypes.func.isRequired,
+  showCart: PropTypes.bool.isRequired,
+};
 
 export default CollectionProducts;
