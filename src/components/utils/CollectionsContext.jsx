@@ -20,10 +20,15 @@ export const CollectionsDataProvider = ({ children }) => {
     const collectionsLocalStorageData = checkCollectionsData();
     const stopFetch = collectionsLocalStorageData ? true : false;
     const dataFetch = async () => {
-      const request = await fetch(url);
-      const response = await request.json();
-      setCollections(response);
-      saveCollectionsData(response);
+      try {
+        const request = await fetch(url);
+        const response = await request.json();
+        setCollections(response);
+        saveCollectionsData(response);
+      } catch (error) {
+        console.error(error);
+        throw new Error(error);
+      }
     };
     if (!stopFetch) {
       console.log("fetching collections from API");
@@ -50,9 +55,14 @@ export const CollectionsDataProvider = ({ children }) => {
       const stopFetch = collectionsWithDataLocalStorageData ? true : false;
 
       const dataFetch = async (url) => {
-        const request = await fetch(url);
-        const response = await request.json();
-        return response;
+        try {
+          const request = await fetch(url);
+          const response = await request.json();
+          return response;
+        } catch (error) {
+          console.error(error);
+          throw new Error(error);
+        }
       };
 
       const fetchCollectionsWithProducts = async () => {
