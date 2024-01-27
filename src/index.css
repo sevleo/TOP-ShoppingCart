@@ -81,3 +81,19 @@ button:focus-visible {
 #gh-logo:hover {
   transform: rotate(360deg) scale(1.2);
 }
+
+#content.home {
+  background-image: url("public/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (min-width: 950px) {
+  #content.home {
+    background-image: url("public/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 950px;
+  }
+}

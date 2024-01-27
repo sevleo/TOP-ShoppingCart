@@ -48,7 +48,7 @@ function HomeContent({ showCart }) {
   return (
     <div
       id="content"
-      className={`${showCart ? "blur-sm" : ""} flex h-[calc(100vh-112px)] min-h-20 flex-col items-center justify-start gap-4`}
+      className={`${showCart ? "blur-sm" : ""} home flex h-full min-h-20 flex-col items-center justify-start gap-4`}
     >
       <h1 className="max-w-screen-xlflex-wrap mb-6 ml-auto mr-auto mt-6 flex flex-shrink-0  items-start  gap-5 overflow-hidden text-3xl">
         Welcome to our store

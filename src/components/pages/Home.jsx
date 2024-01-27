@@ -8,7 +8,7 @@ function Home({ setShowCart, showCart }) {
     <>
       <Navigation showCart={showCart} setShowCart={setShowCart} />
       <Content type="home" showCart={showCart} setShowCart={setShowCart} />
-      <Footer showCart={showCart} />
+      {/* <Footer showCart={showCart} /> */}
     </>
   );
 }
