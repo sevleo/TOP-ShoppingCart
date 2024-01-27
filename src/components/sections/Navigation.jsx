@@ -34,7 +34,7 @@ function Navigation({ setShowCart, showCart }) {
           >
             shopping_cart
             <span className=" absolute right-[-15px] top-[-5px] flex h-[16px] min-w-[16px] items-center justify-center rounded-full bg-red-600 p-0.5 text-xs text-white">
-              {cartContext.quantity}
+              {cartContext ? cartContext.quantity : 0}
             </span>
           </p>
         </li>
