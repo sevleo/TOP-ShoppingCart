@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { it, describe, expect } from "vitest";
-import App from "../src/App";
+import Router from "../src/components/utils/Router";
 
-describe("App component", () => {
+describe("Router component", () => {
   it("renders without crashing", () => {
-    render(<App />);
+    render(<Router />);
     const header = screen.getByRole("heading", { level: 1 });
-    expect(header.textContent).toMatch(/Hello world!/i);
+    expect(header.textContent).toMatch(/This is home content/i);
   });
 });
