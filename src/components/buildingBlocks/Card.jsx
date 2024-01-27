@@ -38,6 +38,7 @@ Card.propTypes = {
   image: PropTypes.string,
   handle: PropTypes.string,
   price: PropTypes.string,
+  quantity: PropTypes.number,
 };
 
 // Collection cards
@@ -93,7 +94,7 @@ function ProductCard({ title, image, price }) {
   }
 
   return (
-    <div className="mb-6 flex min-h-52  min-w-36 shrink-0 grow-0 basis-1/5 flex-col items-center justify-center rounded-md pb-2 shadow-md">
+    <div className="mb-6 flex min-h-64  min-w-36 shrink-0 grow-0 basis-1/5 flex-col items-center justify-center rounded-md pb-2 shadow-md">
       <img src={image} className="aspect-square rounded-md object-cover "></img>
       <div className="h-16">
         <h1 className="text-l flex items-center justify-center pl-2 pr-2 pt-2 text-center">
@@ -104,11 +105,13 @@ function ProductCard({ title, image, price }) {
         </h1>
       </div>
 
-      <QuantityPicker
-        handleAddClick={handleAddClick}
-        handleSubtractClick={handleSubtractClick}
-        count={count}
-      />
+      <div className="mt-auto w-5/6">
+        <QuantityPicker
+          handleAddClick={handleAddClick}
+          handleSubtractClick={handleSubtractClick}
+          count={count}
+        />
+      </div>
       <button
         onClick={handleAddToCartClick}
         className="bg-greenCustom mt-2 w-11/12 p-2 text-white transition-all duration-100 active:bg-black"
